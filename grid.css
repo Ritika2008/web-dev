@@ -1,0 +1,9 @@
+.container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: lightblue;
+}
+.grid{
+    text-align: center;
+    background-color: lightpink;
+}

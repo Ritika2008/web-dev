@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarvis Voice Assistant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1d;
+            color: #f0f0f0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+            background-color: #2b2b2f;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #76c7c0;
+        }
+
+        #response-box {
+            background: #1f1f23;
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            color: #fff;
+            font-size: 1rem;
+            height: 100px;
+            width: 100%;
+            resize: none;
+            margin-bottom: 20px;
+        }
+
+        .mic-btn {
+            background-color: #76c7c0;
+            border: none;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(118, 199, 192, 0.5);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .mic-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(118, 199, 192, 0.8);
+        }
+
+        .mic-btn img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .info {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #bbbbbb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Jarvis Voice Assistant</h1>
+        <textarea id="response-box" readonly placeholder="Waiting for your command..."></textarea>
+        <div>
+            <button class="mic-btn" onclick="startListening()">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/microphone.png" alt="Mic">
+            </button>
+        </div>
+        <p class="info">Click the microphone and speak to Jarvis</p>
+    </div>
+
+    <script>
+        function startListening() {
+            // Simulating interaction (replace with your backend integration logic)
+            const responseBox = document.getElementById("response-box");
+            responseBox.value = "Listening... (Simulated)";
+            
+            // Example: After a delay, Jarvis responds
+            setTimeout(() => {
+                responseBox.value = "Hello! How can I assist you today?";
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+div p{
+    font: 300;
+
+    color: red;
+}
+
+p{
+    color: blue;
+    font-size: larger;
+    background-color: lightgreen;
+}
+
+h1{
+    color:blueviolet;
+    font-style: italic;
+
+}
