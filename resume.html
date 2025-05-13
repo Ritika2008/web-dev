@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #eef1f5;
+    }
+
+    h1, h2 {
+      color: #333;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin: 6px 0 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 10px 15px;
+      background-color: #36383a;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e2e6ea;
+    }
+
+    #resume {
+      display: none;
+      background-color: #fff;
+      padding: 20px;
+      margin-top: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 600px;
+    }
+
+    .section-title {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .label {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Resume Generator</h1>
+
+  <label for="name">Full Name:</label>
+  <input type="text" id="name" placeholder="Required">
+
+  <label for="email">Email Address:</label>
+  <input type="email" id="email" placeholder="e.g., abc@example.com">
+
+  <label for="phone">Phone Number:</label>
+  <input type="tel" id="phone" placeholder="e.g., +1-123-456-7890">
+
+  <label for="education">Education:</label>
+  <textarea id="education" rows="2" placeholder="e.g., B.Sc. in Computer Science, XYZ University"></textarea>
+
+  <label for="skills">Skills (separated by commas):</label>
+  <input type="text" id="skills" placeholder="e.g., HTML, CSS, JavaScript">
+
+  <button onclick="generateResume()">Generate Resume</button>
+
+  <div id="resume">
+    <h2 id="resName"></h2>
+    <p><span class="label">Email:</span> <span id="resEmail"></span></p>
+    <p><span class="label">Phone:</span> <span id="resPhone"></span></p>
+
+    <p class="section-title">Education</p>
+    <p id="resEducation"></p>
+
+    <p class="section-title">Skills</p>
+    <ul id="resSkills"></ul>
+  </div>
+
+  <script>
+    function generateResume() {
+      
+      var name = document.getElementById("name").value.trim();
+      var email = document.getElementById("email").value.trim();
+      var phone = document.getElementById("phone").value.trim();
+      var education = document.getElementById("education").value.trim();
+      var skills = document.getElementById("skills").value.split(',');
+
+      
+      document.getElementById("resName").innerText = name;
+      document.getElementById("resEmail").innerText = email;
+      document.getElementById("resPhone").innerText = phone;
+      document.getElementById("resEducation").innerText = education;
+
+      
+      var skillsList = document.getElementById("resSkills");
+      skillsList.innerHTML = "";
+      skills.forEach(function(skill) {
+        if (skill.trim()) {
+          var li = document.createElement("li");
+          li.innerText = skill.trim();
+          skillsList.appendChild(li);
+        }
+      });
+
+      
+      document.getElementById("resume").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
